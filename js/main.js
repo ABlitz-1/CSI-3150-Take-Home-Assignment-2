@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //Declare quotes object literal with ten entries
     const quotes = [
         {
             quote: "The only limit to our realization of tomorrow is our doubts of today.",
@@ -42,21 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    //grab html elements
     const quoteButton = document.getElementById('quoteButton');
     const quoteDisplay = document.getElementById('quoteDisplay');
     const quoteAuthor = document.getElementById('quoteAuthor');
 
+    //Get a random quote from the quotes object literal
     function getRandomQuote() {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         return quotes[randomIndex];
     }
 
+    //Display the selected quote as a new quote
     function displayNewQuote() {
         const selectedQuote = getRandomQuote();
         quoteDisplay.textContent = `"${selectedQuote.quote}"`;
         quoteAuthor.textContent = `- ${selectedQuote.author}`;
     }
 
+    //Display new quote when clicked
     quoteButton.addEventListener('click', displayNewQuote);
 
     displayNewQuote();
